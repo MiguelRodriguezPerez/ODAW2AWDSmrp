@@ -1,0 +1,23 @@
+head,body{
+    background-color: #0097b2;
+    color:white;
+}
+ul,a{
+    text-align: left;
+    text-decoration: none;
+    color:white;
+}
+label,h3{
+    font-size:25px;
+}
+h3,form{
+    text-align:center;
+}
+.eslogan{
+    text-align:left;
+}
+input{
+    margin-top:10px;
+    margin-bottom:10px;
+    width:200px;
+}

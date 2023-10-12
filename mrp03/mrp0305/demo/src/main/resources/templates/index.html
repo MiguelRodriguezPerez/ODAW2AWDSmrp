@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+    <p th:if="${(primo)}">El numero <span th:text="${valor}"></span> es primo</p>
+    <p th:unless="${(primo)}">El numero <span th:text="${valor}"></span> no es primo</p>
+    <br><br>
+    <span>Valor de X: <span th:text="${X}"></span></span><br>
+    <span>Valor de Y: <span th:text="${Y}"></span></span><br>
+    <span>Hipotenusa: <span th:text="${resultado}"></span></span><br>
+    <!--Cada uno de estos span muestra el valor asignado en el controlador con
+    model.addAttribute-->
+    <div th:each="numero:${lista}">
+        <span th:text="${numero}"></span><br>
+    </div><br>
+    <div th:each="divisor:${divisores}">
+        <a th:href="@{/calculos/divisores/{X}(X=${divisor})}" th:text="${divisor}"></a>
+    </div>
+    <div th:each="divisorDos:${divisoresDos}">
+        <a th:href="@{/calculos/divisoresDos(X=${divisorDos})}"><span th:text="${divisorDos}"></span></a>
+    </div>
+</body>
+</html>

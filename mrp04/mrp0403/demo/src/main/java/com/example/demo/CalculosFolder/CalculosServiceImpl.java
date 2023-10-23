@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 @Service
 public class CalculosServiceImpl implements CalculosService{
 
-     public boolean obtPrimo(String num,Model model){
+     public boolean obtPrimo(String num){
     /*@RequestParam requerirá un valor para ser introducido en la url con el nombre que se           
       indique en el paréntesis, String num es como se referirá el controlador internamente
       a ese valor y Model model es necesario para luego devolver los valores al html*/

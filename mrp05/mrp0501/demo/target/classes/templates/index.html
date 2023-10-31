@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post"
+    th:action="@{/formulario/subir}"
+    th:object="${formularioModel}">
+    <!--th:action define que hará con el formulario al darle al input submit-->
+    <!--th:object define el objeto que se instanciará y que recibirá los datos del formulario-->
+        <label>Nombre:</label><br>
+        <input type="text" id="nombre" th:field="*{nombre}"><br><!--Recibe el atributo nombre-->
+        <label>Edad:</label><br>
+        <input type="text" id="edad" th:field="*{edad}"><br><!--Recibe el atributo edad-->
+        <input type="submit" value="Subir">
+    </form>
+</body>
+</html>

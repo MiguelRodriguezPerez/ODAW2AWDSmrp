@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span th:if="${resultadoF!=null}">Hay <span th:text="${resultadoF}"></span> días entre <span th:text="${fechaDos}"></span> y <span th:text="${fechaUno}"></span></span>
+    <div th:if="${resultadoFBisiesto!=null}"> Son años bisiestos entre <span th:text="${fechaUno}"></span> y <span th:text="${fechaDos}"></span>: 
+        <div th:each="resultado:${resultadoFBisiesto}">
+            <span th:text="${resultado}"></span>
+        </div>
+    </div>
+  
+</body>
+</html>

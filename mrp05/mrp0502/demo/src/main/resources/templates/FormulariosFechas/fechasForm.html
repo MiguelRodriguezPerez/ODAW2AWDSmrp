@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post"
+        th:object="${fechas}"
+        th:action="@{formularioEntreDosFechas/resultado}">
+        <h4>Introduce un par de fechas entre hoy y el futuro</h4>
+        <label>Fecha 1:</label>
+        <input type="text" th:field="*{fecha1}"><br>
+        <label>Fecha 2:</label>
+        <input type="text" th:field="*{fecha2}"><br>
+        <label>Elige opción :</label>
+        <input type="radio" th:field="*{bisiesto}" value="false">Días entre dos fechas<br>
+        <input type="radio" th:field="*{bisiesto}" value="true">Años bisiestos entre dos fechas<br>
+        <input type="submit">
+    </form>
+</body>
+</html>

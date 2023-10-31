@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Numero primo</h1>
+    <form action="#" method="post" 
+        th:action="@{formulario/primoResultado}"
+        th:object="${primo}">
+        <input id="num" type="text" th:field="*{numero}">
+        <input type="submit">
+    </form>
+    <h1>Hipotenusa</h1>
+    <form action="#" method="post"
+        th:action="@{formulario/hipotenusaResultado}"
+        th:object="${hipotenusa}">
+        <input id="n1" type="text" th:field="*{catetoUno}"><br>
+        <input id="n2" type="text" th:field="*{catetoDos}"><br>
+        <input type="submit">
+    </form>
+    <h1>Divisores</h1>
+    <form action="#" method="post"
+        th:action="@{formulario/divisoresResultado}"
+        th:object="${primo}">
+        <input id="d1" type="text" th:field="*{numero}">
+        <input type="submit">
+    </form>
+</body>
+</html>

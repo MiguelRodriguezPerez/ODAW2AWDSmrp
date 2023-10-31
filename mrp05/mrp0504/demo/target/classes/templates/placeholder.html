@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paises</title>
+</head>
+<body>
+    <h2>Info de paises</h2>
+    <form method="post" action="#" th:action="@{/}" th:object="${formInfo}">
+        <select onchange="this.form.submit()" th:field="*{nombre}">>
+            <option value="">selecciona un pais....</option>
+            <option th:each="nombrePais:${listaPaisesNombres}" th:value="${nombrePais}" th:text="${nombrePais}"></option>
+        </select>
+    </form>
+    Capital:<span th:text="${capital}">*</span><br>
+    Población:<span th:text="${poblacion}">*</span><br>
+</body>
+</html>

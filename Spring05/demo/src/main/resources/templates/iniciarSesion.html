@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="estiloDos.css">   
+<head th:insert="encabezado">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Workline</h1>
+    <h3 class="eslogan">Tu próxima etapa</h3>
+    <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/iniciarSesion">Iniciar Sesión</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/quienesSomos">Quienes somos</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/enviarDatos">Enviar Datos</a></li>
+    </ul>
+    <span th:if="${estacion>=1&&estacion<=3}">Tenemos un precioso invierno</span>
+    <span th:if="${estacion>=4&&estacion<=6}">Tenemos una preciosa primavera</span>
+    <span th:if="${estacion>=7&&estacion<=9}">Tenemos un precioso verano</span>
+    <span th:if="${estacion>=10&&estacion<=12}">Tenemos un precioso otoño</span>
+
+
+
+    <h3>Inicia sesión</h3>  
+    <form action="/action_page.php">
+        <label for="fname">Nombre de usuario:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Contraseña:</label><br>
+        <input type="text" id="lname" name="lname"><br><br>
+        <input type="submit" value="Entrar">
+      </form> 
+      
+</body>
+</html>

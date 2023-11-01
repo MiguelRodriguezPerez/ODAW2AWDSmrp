@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:insert="encabezado">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/iniciarSesion">Iniciar Sesión</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/quienesSomos">Quienes somos</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page"
+        href="/enviarDatos">Enviar Datos</a></li>
+    <h2>Sube tus datos</h2>
+    <form action="#" method="post" th:action="@{enviarDatos/resultado}" th:object="${formulario}">
+        <div>Nombre:<input type="text" id="nombre" th:field="*{nombre}"><br>
+        Sector en el que buscas trabajo:<input type="text" id="sector" th:field="*{sector}"><br>
+        Profesión de la que buscas trabajo:<input type="text" id="trabajo" th:field="*{trabajo}"><br>
+        ¿A jornada completa o parcial?<br>
+        Jornada Completa<input type="radio" name="b1" value="true" th:field="*{jornadaCompleta}">
+        Jornada Parcial<input type="radio" name="b1" value="false" th:field="*{jornadaCompleta}"></div><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

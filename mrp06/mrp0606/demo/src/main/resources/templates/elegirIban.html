@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Selecciona un iban</h2>
+    <form action="#" method="post"
+        th:object="${ibanElegido}"
+        th:action="@{/nuevoMovimiento/submit}">
+        <select name="lista" th:field="*{iban}">
+            <option th:each="opcion:${listaIbanes}" th:value="${opcion}" th:text="${opcion}"></option>
+        </select>
+        Importe: <input type="text" th:field="*{importe}">
+        <input type="submit">
+    </form>
+</body>
+</html>

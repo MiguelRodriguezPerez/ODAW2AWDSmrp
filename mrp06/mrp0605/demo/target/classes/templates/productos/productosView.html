@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Productos</h1>
+
+    <select id="select" onChange="changeCategory();">
+        <option value="0">Todas</option>
+        <option th:each="cat : ${listaCategorias}"
+        th:value="${cat.id}" th:text="${cat.nombre}"
+        th:selected="${cat.id} == ${categoriaSeleccionada.id} ? true : false">
+        </option><br>
+    </select><br>
+        <span th:each="producto:${productos}">
+            <span th:text="${producto.idCategoria}"></span>
+            <span th:text="${producto.id}"></span>
+            <span th:text="${producto.nombre}"></span>
+            <span th:if="${enOferta}">Este producto esta en oferta</span>
+            <span th:unless="${enOferta}">Este producto no esta en oferta</span>
+            <span th:text="${producto.tipoIva}"></span>
+            <span th:text="${producto.precio}"></span>
+            <span><a th:href="@{/borrar/{refer}(refer=${producto.id})}">Borrar</a></span>
+            <span><a th:href="@{/editar/{edit}(edit=${producto.id})}">Editar</a></span><br>
+        </span>
+        
+
+        <script>
+        function changeCategory(){
+        const select = document.getElementById("select");
+        if (select.value == 0) window.location.href = "/";
+        else window.location.href = "/porCateg/"+select.value;
+        }
+        </script>
+        <br>
+    <form action="#" method="post"
+        th:action="@{/productos/submit}"
+        th:object="${producto}">
+        Categoria:<select name="categoria" th:field="*{idCategoria}">
+            <option th:each="cat : ${listaCategorias}"
+            th:value="${cat.id}" th:text="${cat.nombre}">
+            </option>
+        </select><br>
+        Id: <input type="text" th:field="*{id}"><br>
+        Nombre: <input type="text" th:field="*{nombre}"><br>
+        En Oferta: <input type="checkbox" th:field="*{enOferta}"><br>
+        Tipo Iva: <br>
+        <input type="radio" name="iva" value="GENERAL">General (21%)  
+        <input type="radio" name="iva" value="REDUCIDO">Reducido (10%)  
+        <input type="radio" name="iva" value="SUPERREDUCIDO">Superreducido (4%)<br>
+        Precio: <input type="text" th:field="*{precio}"><br>
+        <input type="submit">
+    </form>
+    <img src="almacen.jpg">
+</body>
+</html>

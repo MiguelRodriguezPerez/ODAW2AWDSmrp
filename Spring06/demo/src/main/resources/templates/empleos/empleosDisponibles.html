@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>Id</td>
+            <td>Trabajo</td>
+            <td>Sector</td>
+            <td>Sueldo</td>
+            <td>Jornada</td>
+        </th>
+        <tr th:each="empleo:${listaEmpleos}">
+            <td th:text="${empleo.id}"></td>
+            <td th:text="${empleo.trabajo}"></td>
+            <td th:text="${empleo.sector}"></td>
+            <td th:text="${empleo.sueldo}"></td>
+            <td th:text="${empleo.jornada}"></td>
+            <td><a th:href="@{/borrar/{id}(id=${empleo.id})}">Borrar</a></td>
+            <td><a th:href="@{/editar/{id}(id=${empleo.id})}">Editar</a></td>
+        </tr>
+    </table><br>
+    <a th:href="@{/nuevoEmpleo}">Nuevo Empleo</a>
+</body>
+</html>

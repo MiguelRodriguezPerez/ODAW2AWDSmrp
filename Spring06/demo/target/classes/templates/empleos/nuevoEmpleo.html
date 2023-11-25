@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Nuevo Empleo</h2>
+    <form action="#" method="post"
+        th:action="@{/empleosDisponibles/nuevoEmpleo/submit}"
+        th:object="${nEmpleo}">
+        <label>Id:</label>
+        <input type="text" th:field="*{id}"><br>
+        <label>Trabajo:</label>
+        <input type="text" th:field="*{trabajo}"><br>
+        <label>Sector:</label>
+        <input type="text" th:field="*{sector}"><br>
+        <label>Sueldo:</label>
+        <input type="text" th:field="*{sueldo}"><br>
+        <label>Jornada:</label>
+        <input type="radio" th:field="*{jornada}" th:value="COMPLETA">Completa
+        <input type="radio" th:field="*{jornada}" th:value="PARCIAL">Parcial
+        <input type="submit">
+    </form>
+</body>
+</html>

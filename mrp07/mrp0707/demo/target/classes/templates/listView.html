@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empleado CRUD</title>
+</head>
+<body>
+  <h1>Listado de empleados de la empresa</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Nombre</th><th>Email</th><th>Salario</th>
+        <th>Editar</th><th>Borrar</th>
+        </thead>
+        <tbody>
+          <tr th:each="empleado : ${listaEmpleados}">
+            <td th:text="${empleado.id}">Id</td>
+            <td th:text="${empleado.nombre}">nombre</td>
+            <td th:text="${empleado.email}">email@gmail.com</td>
+            <td th:text="${empleado.salario}">0</td>
+          </tr>
+        </tbody>
+        <a th:href="@{/?pag=0}">Pág inicial</a>&nbsp;|&nbsp;
+        <a th:href="@{/(pag=${pagAnterior})}">Pág ant</a>&nbsp;|&nbsp;
+        <a th:href="@{/(pag=${pagSiguiente})}">Pág sig</a>&nbsp;|&nbsp;
+        <a th:href="@{/(pag=${pagFinal})}">Utl.pág</a>
+  </table>
+  <a th:href="@{/}">Inicio</a><br/>
+  <a th:href="@{/nuevo}">Nuevo empleado</a><br/>
+  <a th:href="@{/listado1/1000}">Listado 1 (salario > 1000 euros)</a><br/>
+  <a th:href="@{/listado2}">Listado 2 (salario > media)</a><br/>
+</body>
+</html>

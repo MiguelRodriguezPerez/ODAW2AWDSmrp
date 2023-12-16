@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listado de Empleados de un proyecto</h1>
+<h2 th:text="'Proyecto: ' + ${proyecto.nombre}">Proyecto</h2>
+    <table>
+    <thead><tr>
+    <th>ID</th><th>Nombre</th><th>Puesto</th><th>Borrar</th></tr>
+    </thead>
+    <tbody>
+
+        <tr th:each="empleadoProyecto : ${listaEmpleadoProyecto}">
+        <td th:text="${empleadoProyecto.empleado.id}">Id</td>
+        <td th:text="${empleadoProyecto.empleado.nombre}">nombre</td>
+        <td th:text="${empleadoProyecto.puesto}">Puesto</td>
+        <td><a th:href="@{/emplProy/delete/{idEmpl}/{idProy}
+        (idEmpl=${empleadoProyecto.empleado.id},
+        idProy=${empleadoProyecto.proyecto.id})}">Borrar</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}">Inicio</a><br/>
+    <a th:href="@{/emplProy/new}">Nueva relación proyecto - empleado</a><br/>
+</body>
+</html>

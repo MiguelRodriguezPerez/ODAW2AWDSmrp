@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Empleado/Proyecto Nueva relación</h1>
+    <form method="post" action="#" th:action="@{/emplProy/new/submit}"
+    th:object="${empleadoProyectoForm}">
+        Empleado:<br/>
+        <select name="list1" th:field="*{empleado}">
+        <option value="0">select option</option> <!--opcion por defecto-->
+        <option th:each="empleado:${listaEmpleados}"
+        th:value="${empleado.id}" th:text="${empleado.nombre}"></option>
+        </select><br/>
+        Proyecto:<br/>
+        <select name="list2" th:field="*{proyecto}">
+        <option value="0">select option</option> <!--opcion por defecto-->
+        <option th:each="proyecto:${listaProyectos}"
+        th:value="${proyecto.id}" th:text="${proyecto.nombre}"></option>
+        </select><br/>
+        <label>Puesto:<input type="text" id="puesto" th:field="*{puesto}" /></label><br/>
+        <input type="submit" value="Enviar" />
+    </form>
+    <a th:href="@{/}">Inicio</a><br/>
+</body>
+</html>

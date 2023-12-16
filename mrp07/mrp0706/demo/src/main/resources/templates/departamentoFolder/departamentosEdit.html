@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="#"
+        th:action="@{/departamentos/editar/submit}"
+        th:object="${departamentoEditado}">
+        <input type="text" th:field="*{id}" readonly></input><br>
+        <input type="text" th:field="*{nombre}"></input><br>
+        Departamento:<br/>
+        <select name="list1" th:field="*{departamento}">
+            <option value="0">select option</option> <!--opcion por defecto-->
+            <option th:each="departamento:${listaDepartamentos}"
+                th:value="${departamento.id}" th:text="${departamento.nombre}">
+            </option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+</html>

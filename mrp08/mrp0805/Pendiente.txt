@@ -1,0 +1,2 @@
+Definir las 5 excepciones
+Añadirlas con try catch

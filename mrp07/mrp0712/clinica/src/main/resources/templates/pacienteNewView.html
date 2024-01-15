@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post" th:action="@{/newPaciente/submit}" th:object="${newPaciente}">
+        <label>Dni: <input type="text" id="dni" th:field="*{dni}"></label><br>
+        <label>Nombre: <input type="text" id="nombre" th:field="*{nombre}"></label><br>
+        <label>Fecha Nacimiento (aaaa-mm-dd): <input type="text" id="fechaNacimiento" th:field="*{fechaNacimiento}"></label><br>
+        Motivo de la visita: <br>
+        <div>
+            <label>
+                <input type="radio" name="button1" value="1" text="Consulta" th:field="*{tipoPaciente}">consulta
+            </label>
+            <label>
+                <input type="radio" name="button1" value="2" text="Recetas" th:field="*{tipoPaciente}">recetas
+            </label>
+            <label>
+                <input type="radio" name="button1" value="3" text="Revisión" th:field="*{tipoPaciente}">revisión
+            </label>
+        </div>
+        <br><br>
+        <label>Motivo consulta: <input type="text" id="motivoConsulta" th:field="*{motivoConsulta}"></label><br>
+        <label>Medicamentos (separados por comas): <input type="text" id="listaMedicamentos" th:field="*{listaMedicamentos}"></label><br>
+        <label>Fecha última revisión (aaaa-mm-dd): <input type="text" id="fechaUltimaRevision" th:field="*{fechaUltimaRevision}"></label><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

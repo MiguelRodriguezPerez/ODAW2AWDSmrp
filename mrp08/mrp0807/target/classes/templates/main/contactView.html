@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="/fragment.html::cabecera"></head>
+<body>
+  <nav th:replace="/fragment.html::mainMenu"></nav>
+<h1>Contacto</h1>
+<form action="#" method="post" th:action="@{/contacta/submit}" th:object="${contactFormInfo}">
+  <label>Nombre:
+      <input type="text" id="nombre" th:field="*{nombre}" />
+  </label><br/>
+  <label>Email:
+     <input type="email" id="email" th:field="*{email}" /> <br/>
+  </label><br/>
+  <label>Tipo de contacto:
+    <select size="3" name="tipoContacto" th:field="*{tipoContacto}"> 
+      <option th:each="elem : ${T(com.example.myshop.domain.TipoContacto).values()}"
+              th:value="${elem}" th:text="${elem}">
+      </option>
+    </select>
+  </label><br/>
+  <label>Comentarios:
+     <input type="text" id="comentarios" th:field="*{comentarios}" /><br/>
+  </label><br/>
+  <label>Acepta condiciones
+        <input type="checkbox" id="aceptaCondiciones" th:field="*{aceptaCondiciones}" >
+  </label><br/>
+  <input type="submit" value="Enviar"/>       
+</form>
+</body>
+</html>

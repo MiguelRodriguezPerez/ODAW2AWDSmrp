@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head th:replace="/fragment.html::cabecera"></head>
+<body>
+    <nav th:replace="/fragment.html::mainMenu"></nav>
+    <br>
+    <h2>Valoraciones de <span th:text=${usuario}></span></h2>
+    <br>
+    <table>
+        <tr>
+            <td>Usuario</td>
+            <td>Puntuación</td>
+            <td>Comentario</td>
+            <td>Borrar Comentario</td>
+            <td></td>
+        </tr>
+        <tr th:each="valoracion:${listaOpiniones}">
+            <td th:text="${valoracion.usuario.nombre}"></td>
+            <td th:text="${valoracion.puntuacion}"></td>
+            <td th:text="${valoracion.comentario}"></td>
+            <td><a th:href="@{/valoraciones/borrar/{id}(id=${valoracion.id})}">Borrar</a></td>
+            <td><span type="text" th:text="${valoracion.id}" hidden></td>
+        </tr>
+    </table><br>
+    <a th:href="@{/valoraciones/nuevaValoracion}">Nueva Valoracion</a><br>
+</body>
+</html>

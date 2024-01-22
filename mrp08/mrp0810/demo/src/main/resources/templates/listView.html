@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Listado de empleados de la empresa</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Salario</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="empleado : ${listaEmpleados}">
+          <td th:text="${empleado.id}">Id</td>
+          <td th:text="${empleado.nombre}">nombre</td>
+          <td th:text="${empleado.email}">email@gmail.com</td>
+          <td th:text="${empleado.salario}">0</td>
+
+          <td><a th:href="@{/editar/{id}(id=${empleado.id})}">Editar</a></td>
+          <td><a th:href="@{/borrar/{id}(id=${empleado.id})}">Borrar</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/">Inicio</a><br />
+    <a href="/nuevo">Nuevo empleado</a><br />
+    <p style="color: red" th:text="${msg}">mensaje</p>
+  </body>
+</html>
